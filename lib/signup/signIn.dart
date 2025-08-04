@@ -32,6 +32,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
             controller: emailController,
             decoration: InputDecoration(
+                icon: Icon(Icons.email,size: 10, color: Colors.black,),
               
               labelText: "Email",
               hintText: "Enter your email",
@@ -50,6 +51,34 @@ class _SignInScreenState extends State<SignInScreen> {
                   color: Colors.blue,
                 )
               )
+            ),
+
+          ),
+          SizedBox(height: 5.0,),
+          TextFormField(
+            
+
+            controller: passwordController,
+            decoration: InputDecoration(
+              icon: Icon(Icons.lock,size: 10, color: Colors.black,),
+
+                labelText: "Password",
+                hintText: "Enter your password",
+                border: OutlineInputBorder(),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(
+                    color: Colors.black,
+
+                  ),
+
+                ),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(
+                      color: Colors.blue,
+                    )
+                )
             ),
 
           )
