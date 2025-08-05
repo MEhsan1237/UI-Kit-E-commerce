@@ -1,4 +1,5 @@
 import 'package:e_ui_comm_kit/providers/checkbox_provider_class.dart';
+import 'package:e_ui_comm_kit/screens/forgotpassword.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -33,7 +34,9 @@ class CheckBoxProviderScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 15.0),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword(),));
+                },
                 child: Column(
                   children: [
                     Text(
