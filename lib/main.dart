@@ -1,17 +1,23 @@
 import 'package:e_ui_comm_kit/onboarding/onboardingall_scree.dart';
+import 'package:e_ui_comm_kit/providers/checkbox_provider_class.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import 'onboarding/copy.dart';
-import 'onboarding/onboard_screen.dart';
 
 void main(){
-  runApp(MaterialApp(
-    theme: ThemeData(
-      scaffoldBackgroundColor: Colors.white,
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create:(_) => CheckboxProvider()),
+
+    ],
+    child: MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+      ),
+      debugShowCheckedModeBanner: false,
+      home:
+      MyApp(),
     ),
-    debugShowCheckedModeBanner: false,
-    home:
-    MyApp(),
   ));
 }
 
