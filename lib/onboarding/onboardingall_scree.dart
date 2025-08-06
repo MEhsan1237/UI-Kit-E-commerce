@@ -1,7 +1,8 @@
+import 'package:e_ui_comm_kit/screens/signIn.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../signup/signIn.dart';
+
 
 class MySplashApp extends StatelessWidget {
   const MySplashApp({super.key});

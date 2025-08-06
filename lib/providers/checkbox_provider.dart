@@ -31,30 +31,27 @@ class CheckBoxProviderScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(right: 15.0),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword(),));
-                },
-                child: Column(
-                  children: [
-                    Text(
-                      "Forgot Password",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                     // control spacing here
-                    Container(
-                      height: 0.8,
-                      width: 110, // or use `double.infinity` or wrap with `IntrinsicWidth`
+            Column(
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword(),));
+                  },
+                  child: Text(
+                    "Forgot Password",
+                    style: TextStyle(
                       color: Colors.black,
+                      fontWeight: FontWeight.w600,
                     ),
-                  ],
-                )
-              ),
+                  )
+                ),
+
+                Container(
+                  height: 0.8,
+                  width: 110, // or use `double.infinity` or wrap with `IntrinsicWidth`
+                  color: Colors.black,
+                ),
+              ],
             ),
           ],
         );

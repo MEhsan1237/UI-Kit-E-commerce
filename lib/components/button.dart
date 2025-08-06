@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
 class ButtonContinue extends StatelessWidget {
-  const ButtonContinue({super.key});
+  final VoidCallback onPressed;
+
+  const ButtonContinue({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 40,
-      width: 450,
-      child: ElevatedButton(onPressed: (){},
+      width: 432,
+      child: ElevatedButton(onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
+          shape: ContinuousRectangleBorder(
             borderRadius: BorderRadius.circular(30), // 👈 Change radius here
           ),
 

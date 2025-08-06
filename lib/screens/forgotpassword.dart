@@ -1,3 +1,6 @@
+import 'package:e_ui_comm_kit/components/button.dart';
+import 'package:e_ui_comm_kit/screens/signIn.dart';
+import 'package:e_ui_comm_kit/screens/signup.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -13,78 +16,78 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Forgot Password", style: TextStyle(fontSize: 15)),
+        leading: IconButton(
+            highlightColor: Colors.deepOrangeAccent,
+            onPressed: (){
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignInScreen()),
+                  ModalRoute.withName('/SignUp'));
+            }, icon: Icon(Icons.arrow_back_ios_new_outlined,size: 20, color: Colors.black,)),
+      ),
       body: Column(
         children: [
+          SizedBox(height: 20),
           Text(
             "Forgot Password",
             style: TextStyle(
               color: Colors.black,
-              fontSize: 30,
+              fontSize: 25,
               fontWeight: FontWeight.w900,
             ),
           ),
-          SizedBox(height: 5.0),
+          SizedBox(height: 0.1),
           Text(
+            textAlign: TextAlign.center,
             "Please enter your email and we will send\nyou a link to return to your account",
           ),
-          SizedBox(height: 15.0),
-          TextFormField(
-            controller: emailController,
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: 35,
-              ),
-              suffixIcon: Icon(Icons.email, size: 20, color: Colors.black),
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-
-              labelText: "Email",
-              hintText: "Enter your email",
-              border: OutlineInputBorder(),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide(color: Colors.black),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide(width: 2, color: Colors.blue),
-              ),
-            ),
-          ),
-          SizedBox(height: 15.0),
-          SizedBox(
-            height: 40,
-            width: 450,
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                    30,
-                  ), // 👈 Change radius here
+          SizedBox(height: 24.0),
+          Padding(
+            padding: const EdgeInsets.only(left: 35.0, right: 35.0),
+            child: TextFormField(
+              controller: emailController,
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 35,
                 ),
+                suffixIcon: Icon(Icons.email, size: 20, color: Colors.black),
+                floatingLabelBehavior: FloatingLabelBehavior.always,
 
-                backgroundColor: Colors.deepOrangeAccent,
-              ),
-              child: Center(
-                child: Text(
-                  "Continue",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
+                labelText: "Email",
+                hintText: "Enter your email",
+                border: OutlineInputBorder(),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(color: Colors.black),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: BorderSide(
+                    width: 2,
+                    color: Colors.deepOrangeAccent,
                   ),
                 ),
               ),
             ),
           ),
+          SizedBox(height: 10,),
+          ButtonContinue(onPressed: (){},),
+
+
           SizedBox(height: 15),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("Don't have an account?"),
-              SizedBox(width: 4),
+
               TextButton(
-                onPressed: () {},
+                onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen(),));
+
+                },
                 child: Text(
                   "Sing Up",
                   style: TextStyle(color: Colors.deepOrangeAccent),

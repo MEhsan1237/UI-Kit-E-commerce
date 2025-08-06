@@ -1,7 +1,8 @@
 import 'package:e_ui_comm_kit/components/button.dart';
+import 'package:e_ui_comm_kit/components/mainweb_page.dart';
 import 'package:e_ui_comm_kit/providers/checkbox_provider.dart';
-import 'package:e_ui_comm_kit/providers/checkbox_provider_class.dart';
-import 'package:e_ui_comm_kit/screens/forgotpassword.dart';
+import 'package:e_ui_comm_kit/screens/otpverificationscreen.dart';
+import 'package:e_ui_comm_kit/screens/signup.dart';
 
 
 import 'package:flutter/material.dart';
@@ -30,18 +31,18 @@ class _SignInScreenState extends State<SignInScreen> {
           children: [
             SizedBox(height: 20,),
 
-           Text("Welcome Back",style: TextStyle(color: Colors.black,fontSize: 30,fontWeight: FontWeight.w900),),
+           Text("Welcome Back",style: TextStyle(color: Colors.black,fontSize: 25,fontWeight: FontWeight.w900),),
             SizedBox(height: 5.0,),
             Text(textAlign: TextAlign.center,
                 "Sign in with your email and password\nor continue with social media"),
             SizedBox(height: 10.0,),
             Padding(
-              padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+              padding: const EdgeInsets.only(left: 35.0,right: 35.0),
               child: TextFormField(
 
                 controller: emailController,
                 decoration: InputDecoration(
-                    contentPadding:  EdgeInsets.symmetric(vertical: 20,horizontal: 35),
+                    contentPadding:  EdgeInsets.symmetric(vertical: 12,horizontal: 35),
                     suffixIcon: Icon(Icons.email,size: 20, color: Colors.black,),
                     floatingLabelBehavior: FloatingLabelBehavior.always,
 
@@ -60,7 +61,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     borderRadius: BorderRadius.circular(20),
                     borderSide: BorderSide(
                       width: 2,
-                      color: Colors.blue,
+                      color: Colors.deepOrangeAccent,
                     )
                   )
                 ),
@@ -69,12 +70,12 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             SizedBox(height: 15.0,),
             Padding(
-              padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+              padding: const EdgeInsets.only(left: 35.0,right: 35.0),
               child: TextFormField(
 
                 controller: passwordController,
                 decoration: InputDecoration(
-                  contentPadding:  EdgeInsets.symmetric(vertical: 20,horizontal: 35),
+                  contentPadding:  EdgeInsets.symmetric(vertical: 12,horizontal: 35),
                   suffixIcon: Icon(Icons.lock,size: 20, color: Colors.black,),
 
                     labelText: "Password",
@@ -93,27 +94,38 @@ class _SignInScreenState extends State<SignInScreen> {
                         borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(
                           width: 2,
-                          color: Colors.blue,
+                          color: Colors.deepOrangeAccent,
                         )
                     )
                 ),
 
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 10,),
             Padding(padding: EdgeInsets.all(8.0),
             child:  CheckBoxProviderScreen(),
             ),
+            SizedBox(height: 10,),
+            ButtonContinue(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => OtpVerificationScreen(),));
+            },),
             SizedBox(height: 15,),
-            ButtonContinue(),
-            SizedBox(height: 5,),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: MainWebPage(),
+              ),
+            ),
             Center(
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text("Don't have an account?"),
+                  Text("   Don't have an account?"),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen(),));
+                    },
                     child: Text(
                       "Sign Up",
                       style: TextStyle(color: Colors.deepOrangeAccent),
@@ -122,7 +134,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 15,),
+            SizedBox(height: 75,),
 
 
           ],
