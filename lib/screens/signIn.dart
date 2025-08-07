@@ -108,7 +108,7 @@ class _SignInScreenState extends State<SignInScreen> {
             SizedBox(height: 10,),
             ButtonContinue(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => OtpVerificationScreen(),));
-            },),
+            }, text: "Continue",),
             SizedBox(height: 15,),
             Expanded(
               child: Align(

@@ -8,7 +8,7 @@ class CheckBoxProviderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("hollouh");
+    print("hello jni");
     return Consumer<CheckboxProvider>(
       builder: (context, checkboxProvider, child) {
         return Row(

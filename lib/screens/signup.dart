@@ -1,6 +1,5 @@
 import 'package:e_ui_comm_kit/components/button.dart';
 import 'package:e_ui_comm_kit/components/mainweb_page.dart';
-import 'package:e_ui_comm_kit/screens/otpverificationscreen.dart';
 import 'package:e_ui_comm_kit/screens/signIn.dart';
 import 'package:flutter/material.dart';
 
@@ -148,7 +147,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             SizedBox(height: 20,),
             ButtonContinue(onPressed: (){
 
-            },),
+            }, text: "Continue",),
             SizedBox(height: 5,),
             Expanded(
               child: Align(

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class ButtonContinue extends StatelessWidget {
   final VoidCallback onPressed;
+  final String text;
 
-  const ButtonContinue({super.key, required this.onPressed});
+  const ButtonContinue({super.key, required this.onPressed, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class ButtonContinue extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            "Continue",
+            text,
             style: TextStyle(
               color: Colors.white,
               fontSize: 15,

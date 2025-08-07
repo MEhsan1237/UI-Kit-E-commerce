@@ -177,7 +177,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ),
             SizedBox(height: 20,),
-            ButtonContinue(onPressed: () {  },),
+            ButtonContinue(onPressed: () {  }, text: "Continue",),
             Text( textAlign: TextAlign.center,
                 "By continuing confirm that you agree\nwith our Term and Condition"),
             SizedBox(height: 60,),

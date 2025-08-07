@@ -75,7 +75,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             ),
           ),
           SizedBox(height: 10,),
-          ButtonContinue(onPressed: (){},),
+          ButtonContinue(onPressed: (){}, text: "Continue",),
 
 
           SizedBox(height: 15),

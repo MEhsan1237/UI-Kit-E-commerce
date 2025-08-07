@@ -1,5 +1,6 @@
 import 'package:e_ui_comm_kit/onboarding/onboardingall_scree.dart';
 import 'package:e_ui_comm_kit/providers/checkbox_provider_class.dart';
+import 'package:e_ui_comm_kit/screens/otpverificationscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,6 +9,7 @@ void main(){
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create:(_) => CheckboxProvider()),
+      ChangeNotifierProvider(create: (_)=> OtpProvider()),
 
     ],
     child: MaterialApp(
