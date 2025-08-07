@@ -1,4 +1,5 @@
 import 'package:e_ui_comm_kit/components/button.dart';
+import 'package:e_ui_comm_kit/screens/mainpagescreen.dart';
 import 'package:flutter/material.dart';
 
 class FullScreenImage extends StatelessWidget {
@@ -7,6 +8,11 @@ class FullScreenImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+            highlightColor: Colors.deepOrangeAccent,
+            onPressed: (){
+              Navigator.pop(context);
+            }, icon: Icon(Icons.arrow_back_ios_new_outlined,size: 20, color: Colors.black,)),
         centerTitle: true,
         title: Text("Login Success", style: TextStyle(fontSize: 15)),
       ),
@@ -37,6 +43,7 @@ class FullScreenImage extends StatelessWidget {
                    ),
                    SizedBox(height: 70,),
                    ButtonContinue(onPressed: (){
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPageScreen(),));
 
                    }, text: "Back to home",),
                  ],
