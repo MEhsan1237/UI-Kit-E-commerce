@@ -1,0 +1,139 @@
+import 'package:flutter/material.dart';
+
+class ContainerImage extends StatefulWidget {
+  final List<Map<String, String>> allItems = [
+    {
+      "image": "assets/images/image_banner_2.png",
+      "title": "SmartPhone",
+      "subtitle": "18 Brands",
+    },
+    {
+      "image": "assets/images/image_banner_3.png",
+      "title": "Fashions",
+      "subtitle": "24 Brands",
+    },
+    {
+      "image": "assets/images/ps4_console_blue_1.png",
+      "title": "Laptops",
+      "subtitle": "12 Brands",
+    },
+  ];
+
+  ContainerImage({super.key});
+
+
+
+  @override
+  State<ContainerImage> createState() => _ContainerImageState();
+}
+
+class _ContainerImageState extends State<ContainerImage> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 14.0),
+                child: Text(
+                  "Popular Products",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 30.0),
+                child: TextButton(
+                  onPressed: (){},
+                  child: Text(
+                    "See more",
+                    style: TextStyle(
+                      color: Colors.black26,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w100,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+
+          SizedBox(
+            height: 80,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              itemCount: widget.allItems.length,
+
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Material(
+                    borderRadius: BorderRadius.circular(14),
+
+                    clipBehavior: Clip.antiAlias,
+                    child: InkWell(
+                      onTap: () {},
+                      child: Container(
+                        width: 250,
+
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(14),
+                          image: DecorationImage(
+                            image: AssetImage(widget.allItems[index]["image"]!),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          alignment: Alignment.bottomLeft,
+                          decoration: BoxDecoration(
+
+
+                            borderRadius: BorderRadius.circular(14),
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.black.withOpacity(0.6),
+                                Colors.transparent,
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                            ),
+                          ),
+
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+
+                                Text(style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w400),widget.allItems[index]["title"]!),
+
+                                Text(style: TextStyle(color: Colors.white70,fontSize: 12,fontWeight: FontWeight.w400),widget.allItems[index]["subtitle"]!),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
