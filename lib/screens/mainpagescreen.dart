@@ -33,31 +33,35 @@ class _MainPageScreenState extends State<MainPageScreen> {
           ),
         ),
         actions: [
-          Image(image: AssetImage("assets/images/Cart Icon.svg")),
+          Padding(
+            padding: const EdgeInsets.only(right: 14.0),
+            child: IconButton(onPressed: () {  },
+            icon: Icon(Icons.shopping_cart_outlined,)),
 
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 14.0),
+            child: IconButton(icon: Icon(Icons.notifications_none), onPressed: () {  },),
+          ),
 
-          Image(image: AssetImage("assets/images/Cart Icon.svg")),
 
 
         ],
       ),
       body: Column(children: [SizedBox(height: 10), ContainerWidget(),
         SizedBox(height: 15,),
-        IconRowWithLabels(icons: [
-          Icons.home,
-          Icons.light,
-          Icons.flag,
-          Icons.person,
-          Icons.settings,
+        IconRowWithLabels(
+          icons: [
+            "assets/icons/flash_icon.svg",
+            "assets/icons/bill_icon.svg",
+            "assets/icons/game_icon.svg",
+            "assets/icons/gift_icon.svg",
+            "assets/icons/discover.svg",
+          ],
+          labels: ["Flash Deal", "Bill", "Game", "Daily Gift", "More"],
+          iconSize: 24, // only icon changes size, container stays 50x50
+        )
 
-        ], labels: [
-          "Home",
-          "Likes",
-          "Cart",
-          "Profile",
-          "Settings",
-
-        ],),
 
       ]
 

@@ -1,57 +1,74 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class IconRowWithLabels extends StatelessWidget {
-  final List<IconData> icons;
+  final List<dynamic> icons;
   final List<String> labels;
+  final double iconSize; // new parameter for icon size
 
   const IconRowWithLabels({
     super.key,
     required this.icons,
     required this.labels,
+    this.iconSize = 24, // default icon size
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Row of containers with icons
+        // Icons Row
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(5, (index) {
-            return Material(
-              color: Colors.transparent,
-              child: InkWell(
-                onTap: (){},
-                borderRadius: BorderRadius.circular(12),
-                child: Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: 		Color(0xFFFBE9E7),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Icon(icons[index], size: 30, color: Colors.indigo),
+          children: List.generate(icons.length, (index) {
+            return InkWell(
+              onTap: () {},
+              borderRadius: BorderRadius.circular(12),
+              child: Container(
+                width: 50, // container size stays the same
+                height: 50,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFBE9E7),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Center(
+                  child: _buildIcon(icons[index], iconSize),
                 ),
               ),
             );
           }),
         ),
-        const SizedBox(height: 8),
-        // Row of labels under each container
+
+        const SizedBox(height: 6),
+
+        // Labels Row
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(5, (index) {
-            return SizedBox(
-              width: 60,
+          children: List.generate(labels.length, (index) {
+            return Expanded(
               child: Text(
                 labels[index],
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 12),
+                style: const TextStyle(fontSize: 14),
+                overflow: TextOverflow.ellipsis,
               ),
             );
           }),
         ),
       ],
     );
+  }
+
+  Widget _buildIcon(dynamic iconSource, double size) {
+    if (iconSource is IconData) {
+      return Icon(iconSource, size: size, color: Colors.indigo);
+    } else if (iconSource is String) {
+      if (iconSource.endsWith(".svg")) {
+        return SvgPicture.asset(iconSource, width: size, height: size);
+      } else {
+        return Image.asset(iconSource, width: size, height: size);
+      }
+    }
+    return const SizedBox.shrink();
   }
 }
