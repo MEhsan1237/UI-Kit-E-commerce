@@ -4,7 +4,8 @@ class PopularImageController extends StatefulWidget {
  final List <Map<String ,String>> imageItems= [
    {
      "images" : "assets/images/image_popular_product_1.png",
-     "labels" : "Wireless Controller for\nPS4^TM"
+
+     "labels" : "Wireless Controller for\nPS4"
    },
    {
      "images" : "assets/images/image_popular_product_2.png",
@@ -61,7 +62,7 @@ class _PopularImageControllerState extends State<PopularImageController> {
         ),
 
         SizedBox(
-          height: 140,
+          height: 120,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: widget.imageItems.length,
@@ -69,14 +70,16 @@ class _PopularImageControllerState extends State<PopularImageController> {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Container(
-                  width: 200,
-                  height: 70,
-                  decoration: BoxDecoration(color: Colors.red),
+                  width: 190,
+                  height: 20,
+                  decoration: BoxDecoration(color: Colors.white),
                   child: Column(
                     children: [
                       Image(
                         image: AssetImage(
-                            widget.imageItems[index]["images"]!),),
+                            widget.imageItems[index]["images"]!), width: 70, // desired width
+                        height: 70, // desired height
+                        fit: BoxFit.contain,),
                       SizedBox(height: 10),
                       Text(widget.imageItems[index]["labels"]!),
                     ],

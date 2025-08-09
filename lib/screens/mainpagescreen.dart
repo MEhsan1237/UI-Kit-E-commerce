@@ -3,6 +3,7 @@ import 'package:e_ui_comm_kit/components/containericontext.dart';
 import 'package:e_ui_comm_kit/components/imagecontainer.dart';
 import 'package:e_ui_comm_kit/components/popularimagecontainer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class MainPageScreen extends StatefulWidget {
   const MainPageScreen({super.key});
@@ -18,6 +19,7 @@ class _MainPageScreenState extends State<MainPageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         title: Container(
           height: 40,
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -26,7 +28,7 @@ class _MainPageScreenState extends State<MainPageScreen> {
             decoration: InputDecoration(
               hintText: "Search products",
               border: InputBorder.none,
-
+    
               icon: Icon(Icons.search),
             ),
           ),
@@ -47,38 +49,69 @@ class _MainPageScreenState extends State<MainPageScreen> {
             ),
           ),
         ],
+
+
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 10),
-          ContainerWidget(),
-          SizedBox(height: 25),
-          IconRowWithLabels(
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 6.0, // space around notch
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
 
-            icons: [
-              "assets/icons/flash_icon.svg",
-              "assets/icons/bill_icon.svg",
-              "assets/icons/game_icon.svg",
-              "assets/icons/gift_icon.svg",
-              "assets/icons/discover.svg",
-            ],
-            labels: ["Flash Deal", "Bill", "Game", "Daily Gift", "More"],
-
-            iconSize: 24, // only icon changes size, container stays 50x50
-          ),
-          ContainerImage(),
-          SizedBox(height: 10,),
-          PopularImageController(),
-
-
-
-
-
-
-
-
-        ],
+                onPressed: (){}, icon: SvgPicture.asset("assets/icons/Shop_Icon.svg",width: 24,
+                  height: 24,   )
+                  ,
       ),
+              IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/Heart_Icon.svg",width: 24,
+                height: 24,)
+              ),
+              IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/Chat_bubble_Icon.svg",width: 24,
+                height: 24,)
+              ),
+              IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/User.svg",width: 24,
+                height: 24,)
+              ),
+      ]
+    ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 10),
+            ContainerWidget(),
+            SizedBox(height: 25),
+            IconRowWithLabels(
+            
+              icons: [
+                "assets/icons/flash_icon.svg",
+                "assets/icons/bill_icon.svg",
+                "assets/icons/game_icon.svg",
+                "assets/icons/gift_icon.svg",
+                "assets/icons/discover.svg",
+              ],
+              labels: ["Flash Deal", "Bill", "Game", "Daily Gift", "More"],
+            
+              iconSize: 24, // only icon changes size, container stays 50x50
+            ),
+            ContainerImage(),
+            SizedBox(height: 10,),
+            PopularImageController(),
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          ],
+        ),
+      ),
+
     );
   }
 }
