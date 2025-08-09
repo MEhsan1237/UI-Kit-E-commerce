@@ -66,7 +66,7 @@ class _ContainerImageState extends State<ContainerImage> {
               ),
             ],
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 8),
 
           SizedBox(
             height: 80,
@@ -85,7 +85,7 @@ class _ContainerImageState extends State<ContainerImage> {
                     child: InkWell(
                       onTap: () {},
                       child: Container(
-                        width: 250,
+                        width: 300,
 
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),

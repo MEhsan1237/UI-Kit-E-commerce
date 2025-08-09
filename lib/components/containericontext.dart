@@ -27,8 +27,8 @@ class IconRowWithLabels extends StatelessWidget {
                 onTap: () {},
                 borderRadius: BorderRadius.circular(12),
                 child: Container(
-                  width: 50, // container size stays the same
-                  height: 50,
+                  width: 45, // container size stays the same
+                  height: 45,
                   decoration: BoxDecoration(
                     color: const Color(0xFFFBE9E7),
                     borderRadius: BorderRadius.circular(12),

@@ -5,15 +5,15 @@ class PopularImageController extends StatefulWidget {
    {
      "images" : "assets/images/image_popular_product_1.png",
 
-     "labels" : "Wireless Controller for\nPS4"
+     "labels" : "Wireless Controller\nfor PS4"
    },
    {
      "images" : "assets/images/image_popular_product_2.png",
-     "labels" : "Nike Sports White -\nPant"
+     "labels" : "Nike Sports White -\nMan Pant"
    },
    {
-     "images" : "assets/images/image_popular_product_2.png",
-     "labels" : "Nike Sports White -\nPant"
+     "images" : "assets/images/glap.png",
+     "labels" : "Gloves XC Omega -\nPolygon"
    },
 
  ];
@@ -34,7 +34,7 @@ class _PopularImageControllerState extends State<PopularImageController> {
 
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 25.0, right: 32.0),
+          padding: const EdgeInsets.only(left: 25.0, right: 30.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -60,9 +60,10 @@ class _PopularImageControllerState extends State<PopularImageController> {
             ],
           ),
         ),
+        SizedBox(height: 5,),
 
         SizedBox(
-          height: 120,
+          height: 140,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: widget.imageItems.length,
@@ -81,7 +82,7 @@ class _PopularImageControllerState extends State<PopularImageController> {
                         height: 70, // desired height
                         fit: BoxFit.contain,),
                       SizedBox(height: 10),
-                      Text(widget.imageItems[index]["labels"]!),
+                      Text(widget.imageItems[index]["labels"]!,style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w500),),
                     ],
                   ),
                 ),

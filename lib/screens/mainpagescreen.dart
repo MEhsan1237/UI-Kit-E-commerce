@@ -82,7 +82,7 @@ class _MainPageScreenState extends State<MainPageScreen> {
           children: [
             SizedBox(height: 10),
             ContainerWidget(),
-            SizedBox(height: 25),
+            SizedBox(height: 15),
             IconRowWithLabels(
             
               icons: [
