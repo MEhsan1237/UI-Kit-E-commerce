@@ -18,42 +18,49 @@ class IconRowWithLabels extends StatelessWidget {
     return Column(
       children: [
         // Icons Row
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(icons.length, (index) {
-            return InkWell(
-              onTap: () {},
-              borderRadius: BorderRadius.circular(12),
-              child: Container(
-                width: 50, // container size stays the same
-                height: 50,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFBE9E7),
-                  borderRadius: BorderRadius.circular(12),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: List.generate(icons.length, (index) {
+              return InkWell(
+                onTap: () {},
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  width: 50, // container size stays the same
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFBE9E7),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Center(
+                    child: _buildIcon(icons[index], iconSize),
+                  ),
                 ),
-                child: Center(
-                  child: _buildIcon(icons[index], iconSize),
-                ),
-              ),
-            );
-          }),
+              );
+            }),
+          ),
         ),
 
         const SizedBox(height: 6),
 
         // Labels Row
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(labels.length, (index) {
-            return Expanded(
-              child: Text(
-                labels[index],
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 14),
-                overflow: TextOverflow.ellipsis,
-              ),
-            );
-          }),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: List.generate(labels.length, (index) {
+              return Expanded(
+                child: Text(
+                  labels[index],
+
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 14,fontWeight: FontWeight.w600),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              );
+            }),
+          ),
         ),
       ],
     );

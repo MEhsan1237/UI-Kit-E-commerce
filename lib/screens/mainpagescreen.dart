@@ -54,6 +54,7 @@ class _MainPageScreenState extends State<MainPageScreen> {
           ContainerWidget(),
           SizedBox(height: 25),
           IconRowWithLabels(
+
             icons: [
               "assets/icons/flash_icon.svg",
               "assets/icons/bill_icon.svg",
@@ -62,17 +63,20 @@ class _MainPageScreenState extends State<MainPageScreen> {
               "assets/icons/discover.svg",
             ],
             labels: ["Flash Deal", "Bill", "Game", "Daily Gift", "More"],
+
             iconSize: 24, // only icon changes size, container stays 50x50
           ),
+          ContainerImage(),
+          SizedBox(height: 10,),
+          PopularImageController(),
 
-          SizedBox(height: 10),
-          PopularImageContainer(
-            imagePath: [
-              "assets/icons/flash_icon.svg",
-              "assets/icons/bill_icon.svg",
-              "assets/icons/game_icon.svg",
-            ], labels: ["Flash Deal", "Bill", "Game", "Daily Gift", "More"],
-          ),
+
+
+
+
+
+
+
         ],
       ),
     );

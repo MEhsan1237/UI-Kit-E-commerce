@@ -42,7 +42,7 @@ class _ContainerImageState extends State<ContainerImage> {
               Padding(
                 padding: const EdgeInsets.only(left: 14.0),
                 child: Text(
-                  "Popular Products",
+                  "Special For you",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
@@ -51,7 +51,7 @@ class _ContainerImageState extends State<ContainerImage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 30.0),
+                padding: const EdgeInsets.only(right: 19.0),
                 child: TextButton(
                   onPressed: (){},
                   child: Text(

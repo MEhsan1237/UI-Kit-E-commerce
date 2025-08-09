@@ -1,65 +1,90 @@
 import 'package:flutter/material.dart';
 
-class PopularImageContainer extends StatelessWidget {
-  final List<String> imagePath;
-  final List<String> labels;
-   // image ka size
+class PopularImageController extends StatefulWidget {
+ final List <Map<String ,String>> imageItems= [
+   {
+     "images" : "assets/images/image_popular_product_1.png",
+     "labels" : "Wireless Controller for\nPS4^TM"
+   },
+   {
+     "images" : "assets/images/image_popular_product_2.png",
+     "labels" : "Nike Sports White -\nPant"
+   },
+   {
+     "images" : "assets/images/image_popular_product_2.png",
+     "labels" : "Nike Sports White -\nPant"
+   },
 
-  const PopularImageContainer({
+ ];
+
+    PopularImageController({
     super.key,
-    required this.imagePath,
-    required this.labels,
-     // default image size
+
   });
 
   @override
+  State<PopularImageController> createState() => _PopularImageControllerState();
+}
+
+class _PopularImageControllerState extends State<PopularImageController> {
+  @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        // Images Row
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(imagePath.length, (index) {
-            return InkWell(
-              onTap: () {
 
-              },
-              borderRadius: BorderRadius.circular(12),
-              child: Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFBE9E7),
-                  borderRadius: BorderRadius.circular(12),
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 25.0, right: 32.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Popular Product",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
                 ),
-                child: Center(
-                  child: Image.asset(
-                    imagePath[index],
-                    width:140,
-                    height:40,
-                    fit: BoxFit.contain,
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "See more",
+                  style: TextStyle(
+                    color: Colors.black26,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w100,
                   ),
                 ),
               ),
-            );
-          }),
+            ],
+          ),
         ),
 
-        const SizedBox(height: 6),
-
-        // Labels Row
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(labels.length, (index) {
-            return Expanded(
-              child: Text(
-                labels[index],
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 14),
-                overflow: TextOverflow.ellipsis,
-              ),
-            );
-          }),
+        SizedBox(
+          height: 140,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: widget.imageItems.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Container(
+                  width: 200,
+                  height: 70,
+                  decoration: BoxDecoration(color: Colors.red),
+                  child: Column(
+                    children: [
+                      Image(
+                        image: AssetImage(
+                            widget.imageItems[index]["images"]!),),
+                      SizedBox(height: 10),
+                      Text(widget.imageItems[index]["labels"]!),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
         ),
       ],
     );
