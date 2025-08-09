@@ -3,6 +3,7 @@ import 'package:e_ui_comm_kit/components/button.dart';
 import 'package:e_ui_comm_kit/screens/signIn.dart';
 import 'package:e_ui_comm_kit/screens/success.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
 
@@ -91,13 +92,10 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
               MaterialPageRoute(builder: (context) => SignInScreen()),
             );
           },
-          icon: Icon(
-            Icons.arrow_back_ios_new_outlined,
-            size: 20,
-            color: Colors.black,
-          ),
+          icon: SvgPicture.asset("assets/icons/back_icon.svg")
         ),
-      ),
+        ),
+
       body: Padding(
         padding: const EdgeInsets.all(2.0),
         child: Column(

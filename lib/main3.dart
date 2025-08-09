@@ -1,3 +1,4 @@
+import 'package:e_ui_comm_kit/screens/allproductsscreen.dart';
 import 'package:e_ui_comm_kit/screens/mainpagescreen.dart';
 import 'package:flutter/material.dart';
  void main()
@@ -5,6 +6,6 @@ import 'package:flutter/material.dart';
 
    runApp(MaterialApp(
      debugShowCheckedModeBanner: false,
-     home: MainPageScreen(),
+     home: AllProductsScreen(),
    ));
  }

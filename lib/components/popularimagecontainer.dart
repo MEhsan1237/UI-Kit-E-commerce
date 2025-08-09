@@ -5,7 +5,7 @@ class PopularImageController extends StatefulWidget {
    {
      "images" : "assets/images/image_popular_product_1.png",
 
-     "labels" : "Wireless Controller\nfor PS4"
+     "labels" : " Wireless Controller\n for  PS4™"
    },
    {
      "images" : "assets/images/image_popular_product_2.png",

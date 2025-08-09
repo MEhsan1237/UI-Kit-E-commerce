@@ -2,6 +2,7 @@ import 'package:e_ui_comm_kit/components/button.dart';
 import 'package:e_ui_comm_kit/components/mainweb_page.dart';
 import 'package:e_ui_comm_kit/screens/signIn.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -29,11 +30,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInScreen(),));
 
             },
-            icon: Icon(
-              Icons.arrow_back_ios_new_outlined,
-              size: 20,
-              color: Colors.black,
-            ),
+            icon:SvgPicture.asset("assets/icons/back_icon.svg")
           ),
         ),
         body: Column(

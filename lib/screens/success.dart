@@ -1,6 +1,7 @@
 import 'package:e_ui_comm_kit/components/button.dart';
 import 'package:e_ui_comm_kit/screens/mainpagescreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class FullScreenImage extends StatelessWidget {
   const FullScreenImage({super.key});
@@ -12,7 +13,8 @@ class FullScreenImage extends StatelessWidget {
             highlightColor: Colors.deepOrangeAccent,
             onPressed: (){
               Navigator.pop(context);
-            }, icon: Icon(Icons.arrow_back_ios_new_outlined,size: 20, color: Colors.black,)),
+            }, icon: SvgPicture.asset("assets/icons/back_icon.svg")
+        ),
         centerTitle: true,
         title: Text("Login Success", style: TextStyle(fontSize: 15)),
       ),

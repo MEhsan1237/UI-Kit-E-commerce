@@ -24,12 +24,12 @@ class _MainPageScreenState extends State<MainPageScreen> {
           height: 40,
           padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(),
-          child: const TextField(
+          child: TextField(
             decoration: InputDecoration(
               hintText: "Search products",
               border: InputBorder.none,
     
-              icon: Icon(Icons.search),
+              icon: SvgPicture.asset("assets/icons/search_icon.svg",width: 20,height: 20,),
             ),
           ),
         ),
@@ -38,13 +38,13 @@ class _MainPageScreenState extends State<MainPageScreen> {
             padding: const EdgeInsets.only(right: 14.0),
             child: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.shopping_cart_outlined),
+              icon: SvgPicture.asset("assets/icons/cart_icon.svg",width: 20,height: 20,),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 14.0),
             child: IconButton(
-              icon: Icon(Icons.notifications_none),
+              icon: SvgPicture.asset("assets/icons/bell.svg",width: 20,height: 20,),
               onPressed: () {},
             ),
           ),
@@ -61,18 +61,18 @@ class _MainPageScreenState extends State<MainPageScreen> {
             children: [
               IconButton(
 
-                onPressed: (){}, icon: SvgPicture.asset("assets/icons/Shop_Icon.svg",width: 24,
-                  height: 24,   )
+                onPressed: (){}, icon: SvgPicture.asset("assets/icons/Shop_Icon.svg",width: 20,
+                  height: 20,   )
                   ,
       ),
-              IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/Heart_Icon.svg",width: 24,
-                height: 24,)
+              IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/heart_icon.svg",width: 20,
+                height: 20,)
               ),
-              IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/Chat_bubble_Icon.svg",width: 24,
-                height: 24,)
+              IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/chat_bubble_Icon.svg",width: 20,
+                height: 20,)
               ),
-              IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/User.svg",width: 24,
-                height: 24,)
+              IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/user.svg",width: 20,
+                height: 20,)
               ),
       ]
     ),

@@ -2,6 +2,7 @@ import 'package:e_ui_comm_kit/components/button.dart';
 import 'package:e_ui_comm_kit/screens/signIn.dart';
 import 'package:e_ui_comm_kit/screens/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -26,7 +27,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   context,
                   MaterialPageRoute(builder: (context) => SignInScreen()),
                   ModalRoute.withName('/SignUp'));
-            }, icon: Icon(Icons.arrow_back_ios_new_outlined,size: 20, color: Colors.black,)),
+            }, icon: SvgPicture.asset("assets/icons/back_icon.svg")
+      ),
       ),
       body: Column(
         children: [
@@ -97,6 +99,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
           ),
         ],
       ),
+
     );
   }
 }

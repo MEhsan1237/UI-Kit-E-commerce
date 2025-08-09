@@ -13,7 +13,7 @@ class ContainerImage extends StatefulWidget {
       "subtitle": "24 Brands",
     },
     {
-      "image": "assets/images/ps4_console_blue_1.png",
+      "image": "assets/images/image_banner_1.jpg",
       "title": "Laptops",
       "subtitle": "12 Brands",
     },
