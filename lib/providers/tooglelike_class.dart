@@ -1,14 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
-class ToggleLikedClass  extends ChangeNotifier{
+class ToggleLikedClass extends ChangeNotifier {
+  Map<String, bool> _likedStatus = {}; // product id ke liye liked status
 
-  bool _isLiked = false;
-  bool get  isLiked => _isLiked;
+  bool isLiked(String productId) => _likedStatus[productId] ?? false;
 
-  void toggleLiked ( bool val){
-    _isLiked  = val;
+  void toggleLiked(String productId) {
+    _likedStatus[productId] = !(_likedStatus[productId] ?? false);
     notifyListeners();
   }
-
-
 }

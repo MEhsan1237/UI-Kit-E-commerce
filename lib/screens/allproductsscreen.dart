@@ -1,10 +1,11 @@
+import 'package:e_ui_comm_kit/providers/togglelike_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AllProductsScreen extends StatefulWidget {
   final List<Map<String, String>> productList = [
     {
-      "image": "assets/images/product_1_image.png",
+      "image": "assets/images/image_popular_product_1.png",
       "label": "Wireless Controller\nfor PS4™",
       "price": "\$64.99",
     },
@@ -74,22 +75,29 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
             crossAxisCount: 2,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
-            childAspectRatio: 6 / 6,
+            childAspectRatio: 6 / 7,
           ),
           itemCount: widget.productList.length,
           itemBuilder: (context, index) {
             return Container(
-              decoration: BoxDecoration(color: Colors.yellow),
+              decoration: BoxDecoration(color: Colors.white),
 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    widget.productList[index]["image"]!,
-                    height: 40,
-                    width: 90,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30.0),
+                    child: Center(
+                      child: InkWell( onTap: (){},
+                        child: Image.asset(
+                          widget.productList[index]["image"]!,
+                          height: 110,
+                          width: 210,
+                        ),
+                      ),
+                    ),
                   ),
-                  SizedBox(height: 120,width: 200,),
+                  SizedBox(height: 50),
                   Padding(
                     padding: const EdgeInsets.only(left: 20.0),
                     child: Text(
@@ -110,9 +118,10 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                       children: [
 
                     Padding(
-                      padding: const EdgeInsets.only(left: 20.0,top: 10),
-                      child: Text(widget.productList[index]["price"]!),
+                      padding: const EdgeInsets.only(left: 21,top: 10),
+                      child: Text(widget.productList[index]["price"]!,style: TextStyle(color: Colors.deepOrangeAccent),),
                     ),
+                        ToggleLikeProvider(productId: index.toString()),
 
 
                   ]),
