@@ -1,10 +1,12 @@
 import 'package:e_ui_comm_kit/components/imagecontainer.dart';
+import 'package:e_ui_comm_kit/screens/allproductsscreen.dart';
+import 'package:e_ui_comm_kit/screens/mainpagescreen.dart';
 import 'package:flutter/material.dart';
 void main()
 {
 
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: ContainerImage(),
+    home: AllProductsScreen(),
   ));
 }

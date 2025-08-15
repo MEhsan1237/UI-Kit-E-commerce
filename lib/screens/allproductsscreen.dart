@@ -1,4 +1,5 @@
 import 'package:e_ui_comm_kit/providers/togglelike_provider.dart';
+import 'package:e_ui_comm_kit/screens/detailsproduct.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -60,17 +61,18 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
         centerTitle: true,
         title: Text("Products"),
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: SvgPicture.asset(
-            "images/icons/back_icon.svg",
-            width: 20,
-            height: 20,
+            "assets/icons/back_icon.svg",
           ),
         ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: GridView.builder(
+          scrollDirection: Axis.vertical,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 10,
@@ -79,53 +81,72 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
           ),
           itemCount: widget.productList.length,
           itemBuilder: (context, index) {
-            return Container(
-              decoration: BoxDecoration(color: Colors.white),
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal:  10.0,vertical: 10.0),
+              child: Container(
 
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30.0),
-                    child: Center(
-                      child: InkWell( onTap: (){},
+                decoration: BoxDecoration(color: Colors.white),
+
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 10.0,),
+                    Center(
+                      child: InkWell( onTap: (){
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailPage(
+                              image: widget.productList[index]["image"]!,
+                              label: widget.productList[index]["label"]!,
+                              price: widget.productList[index]["price"]!,
+                            ),
+                          ),
+                        );
+                      },
                         child: Image.asset(
                           widget.productList[index]["image"]!,
-                          height: 110,
-                          width: 210,
+                          height: 100,
+                          width: 150,
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 50),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Text(
-                      widget.productList[index]["label"]!,
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w200,
+                    SizedBox(height: 40),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Text(
+                        widget.productList[index]["label"]!,
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w200,
+                        ),
                       ),
                     ),
-                  ),
-
-                  Row( crossAxisAlignment: CrossAxisAlignment.start,
-
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                      children: [
 
                     Padding(
-                      padding: const EdgeInsets.only(left: 21,top: 10),
-                      child: Text(widget.productList[index]["price"]!,style: TextStyle(color: Colors.deepOrangeAccent),),
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                      child: Row( crossAxisAlignment: CrossAxisAlignment.start,
+
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                          children: [
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10.0),
+                          child: Text(widget.productList[index]["price"]!,style: TextStyle(color: Colors.deepOrangeAccent),),
+                        ),
+                            ToggleLikeProvider(productId: index.toString()),
+
+
+                      ]),
                     ),
-                        ToggleLikeProvider(productId: index.toString()),
 
 
-                  ]),
-                ],
+                  ],
+                ),
               ),
             );
           },

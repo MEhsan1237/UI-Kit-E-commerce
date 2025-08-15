@@ -1,187 +1,177 @@
-import 'package:e_ui_comm_kit/components/button.dart';
-import 'package:e_ui_comm_kit/components/mainweb_page.dart';
-import 'package:e_ui_comm_kit/screens/signIn.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:image_picker/image_picker.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
-  TextEditingController firstNameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
-  TextEditingController phoneNumberController = TextEditingController();
-  TextEditingController addressController = TextEditingController();
+class _ProfileScreenState extends State<ProfileScreen> {
+  final List<Map<String ,Widget>> profileListItems = [
+    { "leading" : SvgPicture.asset("assets/icons/user.svg", width: 20,
+      height: 20,
+     ),
+      "text" :  Text("My Account",style: TextStyle(fontSize: 18,color: Colors.red),),
+      "trailing" : SvgPicture.asset("assets/icons/arrow_right.svg",width: 16,color: Colors.red,
+        height: 16,),
+    },
+    { "leading" : SvgPicture.asset("assets/icons/bell.svg", width: 20,
+      height: 20,),
+      "text" :  Text("Notifications",style: TextStyle(fontSize: 18,color: Colors.red),),
+      "trailing" : SvgPicture.asset("assets/icons/arrow_right.svg",width: 16,color: Colors.red,
+        height: 16,),
+    },
+    { "leading" : SvgPicture.asset("assets/icons/settings.svg", width: 20,
+      height: 20,),
+      "text" :  Text("Settings",style: TextStyle(fontSize: 18,color: Colors.red),),
+      "trailing" : SvgPicture.asset("assets/icons/arrow_right.svg",width: 16,color: Colors.red,
+        height: 16,),
+    },
+    { "leading" : SvgPicture.asset("assets/icons/question_mark.svg", width: 20,
+      height: 20,),
+      "text" : Text("Help Center",style: TextStyle(fontSize: 18,color: Colors.red),) ,
+      "trailing" : SvgPicture.asset("assets/icons/arrow_right.svg",width: 16,color: Colors.red,
+        height: 16,),
+    },
+    { "leading" : SvgPicture.asset("assets/icons/log_out.svg", width: 20,
+      height: 20,),
+      "text" :  Text("Log Out",style: TextStyle(fontSize: 18,color: Colors.red),),
+      "trailing" : SvgPicture.asset("assets/icons/arrow_right.svg",width: 16,color: Colors.red,
+        height: 16,),
+    }
+
+
+
+  ];
+
+
+  File? _image;
+
+  Future<void> _pickImage() async {
+    final pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery, // gallery ya camera dono use ho sakte
+    );
+
+    if (pickedFile != null) {
+      setState(() {
+        _image = File(pickedFile.path);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text("Sign Up", style: TextStyle(fontSize: 15)),
-          leading: IconButton(
-            highlightColor: Colors.deepOrangeAccent,
-            onPressed: () {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
 
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInScreen(),));
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: SvgPicture.asset("assets/icons/back_icon.svg"),
+        ),
 
-            },
-            icon: SvgPicture.asset("assets/icons/back_icon.svg")
-          ),
-          ),
-
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+        title: Text("Profile", style: TextStyle(fontSize: 15)),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        height: 65,
+        color: Colors.white,
+        shape: CircularNotchedRectangle(),
+        notchMargin: 6.0,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            SizedBox(height: 20),
+            IconButton(
+              icon: SvgPicture.asset("assets/icons/shop_icon.svg", width: 20, // custom width
+                height: 20, ),
+              onPressed: () {
+                Navigator.pop(context);
 
-            Text(
-              "Complete Profile",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 25,
-                fontWeight: FontWeight.w900,
-              ),
+              },
             ),
-            SizedBox(height: 5.0),
-            Text(
-              textAlign: TextAlign.center,
-              "Complete your details or continue\nwith social media",
-            ),
-            SizedBox(height: 10.0),
-            Padding(
-              padding: const EdgeInsets.only(left: 35.0, right: 35.0),
-              child: TextFormField(
-                controller: firstNameController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
-                    vertical: 12,
-                    horizontal: 35,
-                  ),
-                  suffixIcon: Icon(Icons.person, size: 20, color: Colors.black),
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
+            IconButton(
+              icon: SvgPicture.asset("assets/icons/heart_icon.svg", width: 20, // custom width
+                height: 20,  ),
+              onPressed: () {
 
-                  labelText: "First Name",
-                  hintText: "Enter your first name",
-                  border: OutlineInputBorder(),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(
-                      width: 2,
-                      color: Colors.deepOrangeAccent,
-                    ),
-                  ),
-                ),
-              ),
+              },
             ),
-            SizedBox(height: 15.0),
-            Padding(
-              padding: const EdgeInsets.only(left: 35.0, right: 35.0),
-              child: TextFormField(
-                controller: lastNameController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
-                    vertical: 12,
-                    horizontal: 35,
-                  ),
-                  suffixIcon: Icon(Icons.person, size: 20, color: Colors.black),
 
-                  labelText: "Last name",
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  hintText: "Enter your last name",
-                  border: OutlineInputBorder(),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(
-                      width: 2,
-                      color: Colors.deepOrangeAccent,
-                    ),
-                  ),
-                ),
-              ),
+            IconButton(
+              icon: SvgPicture.asset("assets/icons/chat_bubble_Icon.svg", width: 20, // custom width
+                height: 20, ),
+              onPressed: () {
+
+              },
             ),
-            SizedBox(height: 15.0),
-            Padding(
-              padding: const EdgeInsets.only(left: 35.0, right: 35.0),
-              child: TextFormField(
-                controller: phoneNumberController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
-                    vertical: 12,
-                    horizontal: 35,
-                  ),
-                  suffixIcon: Icon(Icons.phone_android, size: 20, color: Colors.black),
+            IconButton(
+              icon:  SvgPicture.asset("assets/icons/user.svg", width: 20, // custom width
+                height: 20, ),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen(),));
 
-                  labelText: "phone number",
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  hintText: "enter your phone number",
-                  border: OutlineInputBorder(),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(
-                      width: 2,
-                      color: Colors.deepOrangeAccent,
-                    ),
-                  ),
-                ),
-              ),
+              },
             ),
-            SizedBox(height: 15.0,),
-            SizedBox(height: 15.0),
-            Padding(
-              padding: const EdgeInsets.only(left: 35.0, right: 35.0),
-              child: TextFormField(
-                controller: addressController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
-                    vertical: 12,
-                    horizontal: 35,
-                  ),
-                  suffixIcon: Icon(Icons.location_on_outlined, size: 20, color: Colors.black),
-
-                  labelText: "Address",
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  hintText: "Enter your address",
-                  border: OutlineInputBorder(),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(
-                      width: 2,
-                      color: Colors.deepOrangeAccent,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 20,),
-            ButtonContinue(onPressed: () {  }, text: "Continue",),
-            Text( textAlign: TextAlign.center,
-                "By continuing confirm that you agree\nwith our Term and Condition"),
-            SizedBox(height: 60,),
-
           ],
         ),
+      ),
+
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+         crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Center(
+            child: Stack(
+              children: [
+                // Profile Image
+                CircleAvatar(
+                  radius: 60,
+                  backgroundImage:
+                      _image != null
+                          ? FileImage(_image!)
+                          : AssetImage('assets/images/default_dp.png')
+                              as ImageProvider,
+                ),
+                // Camera Icon
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: InkWell(
+                    onTap: _pickImage,
+                    child: CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.blue,
+                      child: Icon(Icons.camera_alt, color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),  
+
+ 
+            Expanded(
+                child: ListView.builder(
+                              itemCount: profileListItems.length,
+                              itemBuilder: (context, index) {
+                return ListTile(
+                  contentPadding:  EdgeInsets.symmetric(vertical: 8,horizontal: 30.0),
+                  onTap: (){},
+                  leading:  profileListItems[index]["leading"],
+
+                  title: profileListItems[index]["text"],
+                  trailing:   profileListItems[index]["trailing"],
+
+
+                );
+                              },))
+        ],
       ),
     );
   }

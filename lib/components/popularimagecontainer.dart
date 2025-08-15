@@ -1,3 +1,4 @@
+import 'package:e_ui_comm_kit/screens/allproductsscreen.dart';
 import 'package:flutter/material.dart';
 
 class PopularImageController extends StatefulWidget {
@@ -47,7 +48,10 @@ class _PopularImageControllerState extends State<PopularImageController> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => AllProductsScreen(),));
+
+                },
                 child: Text(
                   "See more",
                   style: TextStyle(

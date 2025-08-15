@@ -9,12 +9,8 @@ class FullScreenImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            highlightColor: Colors.deepOrangeAccent,
-            onPressed: (){
-              Navigator.pop(context);
-            }, icon: SvgPicture.asset("assets/icons/back_icon.svg")
-        ),
+       automaticallyImplyLeading: false,
+
         centerTitle: true,
         title: Text("Login Success", style: TextStyle(fontSize: 15)),
       ),

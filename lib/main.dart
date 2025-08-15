@@ -1,6 +1,10 @@
+import 'package:e_ui_comm_kit/onboarding/copy.dart';
 import 'package:e_ui_comm_kit/onboarding/onboardingall_scree.dart';
 import 'package:e_ui_comm_kit/providers/checkbox_provider_class.dart';
-import 'package:e_ui_comm_kit/screens/otpverificationscreen.dart';
+import 'package:e_ui_comm_kit/providers/otp_class.dart';
+import 'package:e_ui_comm_kit/providers/tooglelike_class.dart';
+import 'package:e_ui_comm_kit/screens/allproductsscreen.dart';
+import 'package:e_ui_comm_kit/screens/mainpagescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +14,7 @@ void main(){
     providers: [
       ChangeNotifierProvider(create:(_) => CheckboxProvider()),
       ChangeNotifierProvider(create: (_)=> OtpProvider()),
+      ChangeNotifierProvider(create: (_)=> ToggleLikedClass()),
 
     ],
     child: MaterialApp(
@@ -35,7 +40,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: MySplashApp(),
+      body: MainPageScreen()
     );
   }
 }

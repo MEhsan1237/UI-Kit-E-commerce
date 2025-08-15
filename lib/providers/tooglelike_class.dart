@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 class ToggleLikedClass extends ChangeNotifier {
-  Map<String, bool> _likedStatus = {}; // product id ke liye liked status
+  final Map<String, bool> _likedStatus = {}; // product id ke liye liked status
 
   bool isLiked(String productId) => _likedStatus[productId] ?? false;
 

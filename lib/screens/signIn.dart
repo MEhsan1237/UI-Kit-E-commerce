@@ -23,13 +23,10 @@ class _SignInScreenState extends State<SignInScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text("Sign In", style: TextStyle(fontSize: 15)),
-          leading: IconButton(
-            highlightColor: Colors.deepOrangeAccent,
-            onPressed: () {},
-            icon: SvgPicture.asset("assets/icons/back_icon.svg"),
-          ),
+
         ),
 
         body: Column(
