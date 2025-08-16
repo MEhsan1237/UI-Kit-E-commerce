@@ -1,7 +1,6 @@
 import 'package:e_ui_comm_kit/components/button.dart';
 import 'package:e_ui_comm_kit/providers/otp_class.dart';
 
-import 'package:e_ui_comm_kit/screens/signIn.dart';
 import 'package:e_ui_comm_kit/screens/success.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

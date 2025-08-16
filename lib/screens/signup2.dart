@@ -11,10 +11,20 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final _formKey = GlobalKey<FormState>();
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
   TextEditingController addressController = TextEditingController();
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    firstNameController.dispose();
+    lastNameController.dispose();
+    phoneNumberController.dispose();
+    addressController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +44,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           ),
 
-        body: Column(
+        body:  Form(
+          key:  _formKey,
+          child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(height: 20),
@@ -56,6 +68,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
+                 validator: (value){
+                   if(value!.isEmpty)
+                     {
+                       return "Enter FirstName";
+                     }
+                    return null;
+                 },
                 controller: firstNameController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
@@ -86,6 +105,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
+                validator: (value){
+                   if(value!.isEmpty){
+                     return "Enter LAstName";
+
+                   }
+                    return null;
+                },
                 controller: lastNameController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
@@ -116,6 +142,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
+                validator: (value){
+                   if(value!.isEmpty){
+                     return "Enter PhoneNumber";
+                   }
+                },
                 controller: phoneNumberController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
@@ -147,6 +178,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
+                 validator: (value){
+                   if(value!.isEmpty){
+                     return "Enter Address";
+
+                   }
+                 },
                 controller: addressController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
@@ -174,13 +211,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             ),
             SizedBox(height: 20,),
-            ButtonContinue(onPressed: () {  }, text: "Continue",),
+            ButtonContinue(onPressed: () {
+              if(_formKey.currentState!.validate()){}
+
+            }, text: "Continue",),
             Text( textAlign: TextAlign.center,
                 "By continuing confirm that you agree\nwith our Term and Condition"),
             SizedBox(height: 60,),
 
           ],
-        ),
+        ),)
       ),
     );
   }

@@ -5,7 +5,6 @@ import 'package:e_ui_comm_kit/screens/otpverificationscreen.dart';
 import 'package:e_ui_comm_kit/screens/signup.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -15,8 +14,16 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +36,9 @@ class _SignInScreenState extends State<SignInScreen> {
 
         ),
 
-        body: Column(
+        body:  Form(
+          key:  _formKey,
+          child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(height: 20),
@@ -51,6 +60,12 @@ class _SignInScreenState extends State<SignInScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
+                 validator:  (value){
+                    if(value!.isEmpty){
+                      return "Enter Email";
+                    }
+                     return null;
+                 },
                 controller: emailController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
@@ -81,6 +96,14 @@ class _SignInScreenState extends State<SignInScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
+                validator: (value){
+
+                  if(value!.isEmpty){
+                     return "Enter password";
+
+                  }
+                   return null;
+                },
                 controller: passwordController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
@@ -115,6 +138,9 @@ class _SignInScreenState extends State<SignInScreen> {
             SizedBox(height: 10),
             ButtonContinue(
               onPressed: () {
+                if(_formKey.currentState!.validate()){
+
+                }
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -153,7 +179,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             SizedBox(height: 75),
           ],
-        ),
+        ),)
       ),
     );
   }
