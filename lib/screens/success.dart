@@ -1,7 +1,6 @@
+import 'package:e_ui_comm_kit/bottomnavigationbar/bottomnavibar.dart';
 import 'package:e_ui_comm_kit/components/button.dart';
-import 'package:e_ui_comm_kit/screens/mainpagescreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class FullScreenImage extends StatelessWidget {
   const FullScreenImage({super.key});

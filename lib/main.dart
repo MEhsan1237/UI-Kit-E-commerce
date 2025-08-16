@@ -1,3 +1,4 @@
+import 'package:e_ui_comm_kit/bottomnavigationbar/bottomnavibar.dart';
 import 'package:e_ui_comm_kit/onboarding/copy.dart';
 import 'package:e_ui_comm_kit/onboarding/onboardingall_scree.dart';
 import 'package:e_ui_comm_kit/providers/checkbox_provider_class.dart';

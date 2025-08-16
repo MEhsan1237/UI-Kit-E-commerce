@@ -6,46 +6,55 @@ import 'package:flutter_svg/flutter_svg.dart';
 class AllProductsScreen extends StatefulWidget {
   final List<Map<String, String>> productList = [
     {
+      "id": "1",
       "image": "assets/images/image_popular_product_1.png",
       "label": "Wireless Controller\nfor PS4™",
       "price": "\$64.99",
     },
     {
+      "id": "2",
       "image": "assets/images/image_popular_product_2.png",
       "label": "Nike Sports White -\nMan Pant",
       "price": "\$50.5",
     },
     {
+      "id": "3",
       "image": "assets/images/glap.png",
       "label": "Gloves XC Omega -\nPolygon",
       "price": "\$36.55",
     },
     {
+      "id": "4",
       "image": "assets/images/wireless_headset.png",
       "label": "Logitech HyperTone\nHeadphones",
       "price": "\$20.2",
     },
     {
+      "id": "5",
       "image": "assets/images/product_1_image.png",
       "label": "Yellow Thunder\nStreet Vibe",
       "price": "\$29.9",
     },
     {
+      "id": "6",
       "image": "assets/images/product_2_image.png",
       "label": "Adidas Power\nRed Gear",
       "price": "\$32.5",
     },
     {
+      "id": "7",
       "image": "assets/images/product_3_image.png",
       "label": "Leather Urban\nStyle",
       "price": "\$45.3",
     },
     {
+      "id": "8",
       "image": "assets/images/product_4_image.png",
       "label": "Retro Classic\nRiding",
       "price": "\$19.4",
     },
   ];
+
 
   AllProductsScreen({super.key});
 
@@ -138,7 +147,7 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10.0),
                           child: Text(widget.productList[index]["price"]!,style: TextStyle(color: Colors.deepOrangeAccent),),
                         ),
-                            ToggleLikeProvider(productId: index.toString()),
+                  ToggleLikeProvider(productId: widget.productList[index]["id"]!),
 
 
                       ]),

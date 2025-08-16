@@ -1,5 +1,7 @@
+import 'package:e_ui_comm_kit/screens/yourcart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:e_ui_comm_kit/global_cart.dart';
 
 class ProductDetailPage extends StatefulWidget {
   final String image;
@@ -18,8 +20,8 @@ class ProductDetailPage extends StatefulWidget {
 }
 
 class _ProductDetailPageState extends State<ProductDetailPage> {
-  late List<String> productImages; // All images for the product
-  int selectedIndex = 0; // For big image change
+  late List<String> productImages;
+  int selectedIndex = 0;
   int selectedColorIndex = 0;
   bool isFavorite = false;
   bool isDescriptionExpanded = false;
@@ -38,10 +40,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   @override
   void initState() {
     super.initState();
-
-    // You can customize these images per product
     productImages = [
-      widget.image, // First image is the clicked one
+      widget.image,
       'assets/images/ps4_console_white_2.png',
       'assets/images/ps4_console_white_3.png',
       'assets/images/ps4_console_white_4.png',
@@ -69,7 +69,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Big main image
             SizedBox(
               height: 170,
               child: Center(
@@ -79,10 +78,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 ),
               ),
             ),
-
             const SizedBox(height: 12),
-
-            // Thumbnails row
             SizedBox(
               height: 50,
               child: ListView.separated(
@@ -120,10 +116,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 },
               ),
             ),
-
             const SizedBox(height: 20),
-
-            // Product name
             Text(
               widget.label,
               style: const TextStyle(
@@ -143,8 +136,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 },
               ),
             ),
-
-            // Description
             Text(
               isDescriptionExpanded
                   ? fullDescription
@@ -158,14 +149,10 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 });
               },
               child: Text(
-                isDescriptionExpanded
-                    ? "Less details"
-                    : "More details",
+                isDescriptionExpanded ? "Less details" : "More details",
                 style: const TextStyle(color: Colors.blue),
               ),
             ),
-
-            // Colors + Quantity
             Row(
               children: [
                 for (int i = 0; i < productColors.length; i++)
@@ -216,29 +203,41 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 ),
               ],
             ),
-
             const SizedBox(height: 20),
-
-            // Add to cart
             SizedBox(
               height: 40,
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                          "${widget.label} added to cart for ${widget.price}"),
-                    ),
+                  // ✅ Global cart logic
+                  final index = globalCart.indexWhere(
+                          (item) => item.label == widget.label);
+                  if (index != -1) {
+                    globalCart[index].quantity += quantity;
+                  } else {
+                    globalCart.add(CartItem(
+                      image: widget.image,
+                      label: widget.label,
+                      price:
+                      double.parse(widget.price.replaceAll("\$", "")),
+                      quantity: quantity,
+                    ));
+                  }
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => const YourCartScreen( )),
                   );
+
+
+
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.deepOrangeAccent,
                 ),
-                child: const Text(
-                  "Add to Cart",
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
+                child: const Text("Add to Cart",
+                    style: TextStyle(fontSize: 16, color: Colors.white)),
               ),
             ),
           ],

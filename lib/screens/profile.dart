@@ -69,58 +69,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        leading: IconButton(
+       automaticallyImplyLeading: false,
 
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: SvgPicture.asset("assets/icons/back_icon.svg"),
-        ),
+
 
         title: Text("Profile", style: TextStyle(fontSize: 15)),
       ),
-      bottomNavigationBar: BottomAppBar(
-        height: 65,
-        color: Colors.white,
-        shape: CircularNotchedRectangle(),
-        notchMargin: 6.0,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-              icon: SvgPicture.asset("assets/icons/shop_icon.svg", width: 20, // custom width
-                height: 20, ),
-              onPressed: () {
-                Navigator.pop(context);
 
-              },
-            ),
-            IconButton(
-              icon: SvgPicture.asset("assets/icons/heart_icon.svg", width: 20, // custom width
-                height: 20,  ),
-              onPressed: () {
-
-              },
-            ),
-
-            IconButton(
-              icon: SvgPicture.asset("assets/icons/chat_bubble_Icon.svg", width: 20, // custom width
-                height: 20, ),
-              onPressed: () {
-
-              },
-            ),
-            IconButton(
-              icon:  SvgPicture.asset("assets/icons/user.svg", width: 20, // custom width
-                height: 20, ),
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen(),));
-
-              },
-            ),
-          ],
-        ),
-      ),
 
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
