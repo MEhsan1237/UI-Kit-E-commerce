@@ -1,3 +1,4 @@
+import 'package:e_ui_comm_kit/screens/Chatscreen.dart';
 import 'package:flutter/material.dart';
 
 class ContainerImage extends StatefulWidget {
@@ -16,6 +17,16 @@ class ContainerImage extends StatefulWidget {
       "image": "assets/images/image_banner_1.jpg",
       "title": "Laptops",
       "subtitle": "12 Brands",
+    },
+    {
+      "image": "assets/images/image_banner_4.png",
+      "title": "Makeup Products",
+      "subtitle": "14 Brands",
+    },
+    {
+      "image": "assets/images/image_banner_5.png",
+      "title": "Perfumes",
+      "subtitle": "22 Brands",
     },
   ];
 
@@ -83,7 +94,9 @@ class _ContainerImageState extends State<ContainerImage> {
 
                     clipBehavior: Clip.antiAlias,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                          
+                      },
                       child: Container(
                         width: 300,
 

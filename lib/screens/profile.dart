@@ -20,7 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       "trailing" : SvgPicture.asset("assets/icons/arrow_right.svg",width: 16,color: Colors.red,
         height: 16,),
     },
-    { "leading" : SvgPicture.asset("assets/icons/bell.svg", width: 20,
+    { "leading" : SvgPicture.asset("assets/icons/bell_red.svg", width: 20,
       height: 20,),
       "text" :  Text("Notifications",style: TextStyle(fontSize: 18,color: Colors.red),),
       "trailing" : SvgPicture.asset("assets/icons/arrow_right.svg",width: 16,color: Colors.red,

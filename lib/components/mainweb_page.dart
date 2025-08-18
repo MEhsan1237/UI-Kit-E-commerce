@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MainWebPage extends StatelessWidget {
@@ -29,8 +30,8 @@ class MainWebPage extends StatelessWidget {
               icon: SizedBox(
                 height: 40,
                 width: 40,
-                child: Image.network(
-                  "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
+                child: SvgPicture.asset(
+                  "assets/icons/google-icon.svg",
                   fit: BoxFit.contain,
                 ),
               ),
@@ -42,8 +43,8 @@ class MainWebPage extends StatelessWidget {
               icon: SizedBox(
                 height: 40,
                 width: 40,
-                child: Image.network(
-                  "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
+                child: SvgPicture.asset(
+                  "assets/icons/facebook-2.svg",
                   fit: BoxFit.contain,
                 ),
               ),
@@ -55,8 +56,8 @@ class MainWebPage extends StatelessWidget {
               icon: SizedBox(
                 height: 40,
                 width: 40,
-                child: Image.network(
-                  "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg",
+                child:  SvgPicture.asset(
+                  "assets/icons/twitter.svg",
                   fit: BoxFit.contain,
                 ),
               ),

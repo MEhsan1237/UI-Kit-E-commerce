@@ -1,4 +1,5 @@
 import 'package:e_ui_comm_kit/screens/Chatscreen.dart';
+import 'package:e_ui_comm_kit/screens/detailscreen.dart';
 import 'package:e_ui_comm_kit/screens/favouritescreen.dart';
 import 'package:e_ui_comm_kit/screens/mainpagescreen.dart';
 import 'package:e_ui_comm_kit/screens/profile.dart';

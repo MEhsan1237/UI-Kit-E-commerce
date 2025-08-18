@@ -61,7 +61,7 @@ class _SignInScreenState extends State<SignInScreen> {
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
                  validator:  (value){
-                    if(value!.isEmpty){
+                    if( value == null||value.isEmpty){
                       return "Enter Email";
                     }
                      return null;
@@ -98,12 +98,15 @@ class _SignInScreenState extends State<SignInScreen> {
               child: TextFormField(
                 validator: (value){
 
-                  if(value!.isEmpty){
+                  if( value == null ||value.isEmpty){
                      return "Enter password";
-
+                  }
+                  if (value.length < 6) {
+                    return "Password must be at least 6 characters";
                   }
                    return null;
                 },
+                obscureText:  true,
                 controller: passwordController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
@@ -113,8 +116,10 @@ class _SignInScreenState extends State<SignInScreen> {
                   suffixIcon: Icon(Icons.lock, size: 20, color: Colors.black),
 
                   labelText: "Password",
+
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   hintText: "Enter your password",
+
                   border: OutlineInputBorder(),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -139,24 +144,25 @@ class _SignInScreenState extends State<SignInScreen> {
             ButtonContinue(
               onPressed: () {
                 if(_formKey.currentState!.validate()){
-
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => OtpVerificationScreen(),
+                    ),
+                  );
                 }
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => OtpVerificationScreen(),
-                  ),
-                );
+
               },
               text: "Continue",
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 25),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: MainWebPage(),
               ),
             ),
+
             Center(
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -177,7 +183,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 75),
+            SizedBox(height: 25),
           ],
         ),)
       ),

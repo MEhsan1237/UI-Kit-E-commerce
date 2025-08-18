@@ -50,8 +50,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(height: 20),
-
+            SizedBox(height: 5),
             Text(
               "Register Account",
               style: TextStyle(
@@ -60,20 +59,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 fontWeight: FontWeight.w900,
               ),
             ),
-            SizedBox(height: 5.0),
+            SizedBox(height: 2.0),
             Text(
               textAlign: TextAlign.center,
               "Complete your details or continue\nwith social media",
             ),
-            SizedBox(height: 10.0),
+            SizedBox(height: 15.0),
             Padding(
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
                 validator: (value){
-                  if(value!.isEmpty) {
+                  if(  value == null ||value.isEmpty) {
                     return "enter email";
                   }
-                  return null;
+                   return null;
+
+
                 },
 
 
@@ -108,11 +109,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
                 validator: (value){
-                  if(value!.isEmpty){
+                  if( value==null||value.isEmpty){
                     return "Enter Password";
                   }
+                  if (value.length < 6) {
+                    return "Password must be at least 6 characters";
+                  }
                   return null;
+
                 },
+                obscureText: true,
                 controller: passwordController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
@@ -146,11 +152,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                 validator: (value){
 
-                  if(value!.isEmpty){
+                  if( value == null||value.isEmpty){
                     return "Enter Confirm Password";
+                  }
+                  if (value != passwordController.text) {
+                    return "Passwords do not match";
                   }
                   return null;
                 },
+                obscureText: true,
                 controller: confirmPasswordController,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
@@ -177,17 +187,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 10,),
             ButtonContinue(
 
               onPressed: (){
                 if(_formKey.currentState!.validate()){
-
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => OtpVerificationScreen(),));
                 }
-              Navigator.push(context, MaterialPageRoute(builder: (context) => OtpVerificationScreen(),));
+
 
             }, text: "Continue",),
-            SizedBox(height: 5,),
+            SizedBox(height:10,),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
@@ -197,7 +207,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
             Text( textAlign: TextAlign.center,
                 "By continuing confirm that you agree\nwith our Term and Condition"),
-            SizedBox(height: 60,),
+            SizedBox(height: 10,),
 
           ],
         ),)

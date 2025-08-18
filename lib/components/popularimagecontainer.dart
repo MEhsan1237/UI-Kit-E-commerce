@@ -16,6 +16,14 @@ class PopularImageController extends StatefulWidget {
      "images" : "assets/images/glap.png",
      "labels" : "Gloves XC Omega -\nPolygon"
    },
+   {
+     "images" : "assets/images/wireless_headset.png",
+     "labels" : "Logitech HyperTone\nHeadphones"
+   },
+   {
+     "images" : "assets/images/product_3_image.png",
+     "labels" : "Leather Urban\nStyle"
+   },
 
  ];
 

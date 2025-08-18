@@ -21,7 +21,9 @@ class _YourCartScreenState extends State<YourCartScreen> {
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: SvgPicture.asset("assets/icons/back_icon.svg"),
         ),
         title: Column(
@@ -44,53 +46,67 @@ class _YourCartScreenState extends State<YourCartScreen> {
                 itemCount: globalCart.length,
                 itemBuilder: (context, index) {
                   final item = globalCart[index];
-                  return Dismissible(
-                    key: Key(item.label),
-                    direction: DismissDirection.endToStart,
-                    background: Container(
-                      color: Colors.red,
-                      alignment: Alignment.centerRight,
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: const Icon(Icons.delete, color: Colors.white),
-                    ),
-                    onDismissed: (_) {
-                      setState(() {
-                        globalCart.removeAt(index);
-                      });
-                    },
-                    child: Card(
-                      margin: const EdgeInsets.only(bottom: 12),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          children: [
-                            Image.asset(item.image, width: 70, height: 70),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    item.label,
-                                    style: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    "\$${(item.price * item.quantity).toStringAsFixed(2)}",
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.black54,
-                                    ),
-                                  ),
-                                ],
+                  return
+
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Image.asset(item.image, width: 70, height: 70),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                item.label,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                          ],
+                              const SizedBox(height: 4),
+                              Text(
+                                "\$${(item.price * item.quantity)
+                                    .toStringAsFixed(2)}",
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.black54,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
+                    PopupMenuButton(
+                      child: Icon(Icons.more_vert),
+                      onSelected: (value) {
+                        if (value == "delete") {
+                          setState(() {
+                            globalCart.removeAt(index);
+                          });
+                        }
+                      },
+                      itemBuilder: (context) =>
+                      [
+                        PopupMenuItem(
+                        value: "delete",
+
+                          child: ListTile(leading: Icon(Icons.delete),
+                          title: Text("delete"),),),
+                        PopupMenuItem(
+
+                          child: ListTile(
+                            onTap: (){
+                              Navigator.pop(context);
+                            },
+                            leading: Icon(Icons.delete),
+                            title: Text("cancel"),),),
+
+
+
+                      ],)
+                      ],
+
                     ),
                   );
                 },
@@ -112,7 +128,7 @@ class _YourCartScreenState extends State<YourCartScreen> {
                   onPressed: () {},
                   child: const Text(
                     "Add voucher code >",
-                    style: TextStyle(fontSize: 14,color: Colors.black),
+                    style: TextStyle(fontSize: 14, color: Colors.black),
                   ),
                 ),
               ],
