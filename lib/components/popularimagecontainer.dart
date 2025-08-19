@@ -43,7 +43,7 @@ class _PopularImageControllerState extends State<PopularImageController> {
 
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 25.0, right: 30.0),
+          padding: const EdgeInsets.only(left: 25.0, right: 30.0 ,top: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

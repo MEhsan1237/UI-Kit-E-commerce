@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:e_ui_comm_kit/bottomnavigationbar/bottomnavibar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
@@ -69,7 +70,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-       automaticallyImplyLeading: false,
+        leading: IconButton(
+
+          onPressed: () {
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPageScreen(),));
+          },
+          icon: SvgPicture.asset("assets/icons/back_icon.svg"),
+        ),
 
 
 

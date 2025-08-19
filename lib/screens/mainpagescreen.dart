@@ -2,7 +2,6 @@ import 'package:e_ui_comm_kit/components/container.dart';
 import 'package:e_ui_comm_kit/components/containericontext.dart';
 import 'package:e_ui_comm_kit/components/imagecontainer.dart';
 import 'package:e_ui_comm_kit/components/popularimagecontainer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -14,6 +13,7 @@ class MainScreenFullWidgets extends StatelessWidget {
     return Scaffold(
 
       appBar: AppBar(
+        automaticallyImplyLeading:  false,
 
         title: Container(
           height: 40,
@@ -50,9 +50,9 @@ class MainScreenFullWidgets extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 10),
-            ContainerWidget(),
             const SizedBox(height: 15),
+            ContainerWidget(),
+            const SizedBox(height: 20),
             IconRowWithLabels(
               icons: [
                 "assets/icons/flash_icon.svg",
@@ -62,10 +62,11 @@ class MainScreenFullWidgets extends StatelessWidget {
                 "assets/icons/discover.svg",
               ],
               labels: ["Flash Deal", "Bill", "Game", "Daily Gift", "More"],
-              iconSize: 24,
+              iconSize: 20,
             ),
+            SizedBox(height: 15,),
             ContainerImage(),
-            const SizedBox(height: 10),
+            const SizedBox(height: 15),
             PopularImageController(),
           ],
         ),

@@ -1,16 +1,17 @@
 import 'package:e_ui_comm_kit/components/button.dart';
+import 'package:e_ui_comm_kit/screens/otpverificationscreen.dart';
 import 'package:e_ui_comm_kit/screens/signIn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class SignUpScreen2 extends StatefulWidget {
+  const SignUpScreen2({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<SignUpScreen2> createState() => _SignUpScreen2State();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpScreen2State extends State<SignUpScreen2> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
@@ -49,7 +50,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(height: 20),
+            SizedBox(height: 5),
 
             Text(
               "Complete Profile",
@@ -59,17 +60,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 fontWeight: FontWeight.w900,
               ),
             ),
-            SizedBox(height: 5.0),
+            SizedBox(height: 3.0),
             Text(
               textAlign: TextAlign.center,
               "Complete your details or continue\nwith social media",
             ),
-            SizedBox(height: 10.0),
+            SizedBox(height: 5.0),
             Padding(
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
                  validator: (value){
-                   if(value!.isEmpty)
+                   if( value == null ||value.isEmpty)
                      {
                        return "Enter FirstName";
                      }
@@ -101,13 +102,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 15.0),
+            SizedBox(height: 12.0),
             Padding(
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
                 validator: (value){
-                   if(value!.isEmpty){
-                     return "Enter LAstName";
+                   if(value == null||value.isEmpty){
+                     return "Enter LastName";
 
                    }
                     return null;
@@ -138,14 +139,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 15.0),
+            SizedBox(height: 12.0),
             Padding(
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
                 validator: (value){
-                   if(value!.isEmpty){
+                   if(value==null||value.isEmpty){
                      return "Enter PhoneNumber";
                    }
+                   if(value.length<10){
+                     return "Enter FullNumber";
+
+                   }
+                    return null;
                 },
                 controller: phoneNumberController,
                 decoration: InputDecoration(
@@ -173,16 +179,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 15.0,),
-            SizedBox(height: 15.0),
+            SizedBox(height: 12.0,),
+
             Padding(
               padding: const EdgeInsets.only(left: 35.0, right: 35.0),
               child: TextFormField(
                  validator: (value){
-                   if(value!.isEmpty){
+                   if( value == null ||value.isEmpty){
                      return "Enter Address";
 
                    }
+                   return null;
                  },
                 controller: addressController,
                 decoration: InputDecoration(
@@ -210,14 +217,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 10,),
             ButtonContinue(onPressed: () {
-              if(_formKey.currentState!.validate()){}
+              if(_formKey.currentState!.validate()){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => OtpVerificationScreen(),));
+              }
 
             }, text: "Continue",),
+            SizedBox(height: 20,),
             Text( textAlign: TextAlign.center,
                 "By continuing confirm that you agree\nwith our Term and Condition"),
-            SizedBox(height: 60,),
+
 
           ],
         ),)

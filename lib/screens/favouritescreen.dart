@@ -1,8 +1,10 @@
+import 'package:e_ui_comm_kit/bottomnavigationbar/bottomnavibar.dart';
 import 'package:e_ui_comm_kit/providers/tooglelike_class.dart';
 import 'package:e_ui_comm_kit/providers/togglelike_provider.dart';
 import 'package:e_ui_comm_kit/screens/allproductsscreen.dart';
 import 'package:e_ui_comm_kit/screens/detailsproduct.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -20,6 +22,13 @@ class FavoritesScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+
+          onPressed: () {
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPageScreen(),));
+          },
+          icon: SvgPicture.asset("assets/icons/back_icon.svg"),
+        ),
         title: const Text("Favorites"),
         centerTitle: true,
       ),

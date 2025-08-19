@@ -28,8 +28,8 @@ class MainWebPage extends StatelessWidget {
           children: [
             IconButton(
               icon: SizedBox(
-                height: 40,
-                width: 40,
+                height: 25,
+                width: 25,
                 child: SvgPicture.asset(
                   "assets/icons/google-icon.svg",
                   fit: BoxFit.contain,
@@ -38,11 +38,11 @@ class MainWebPage extends StatelessWidget {
 
               onPressed: () => _launchURL(googleUrl),
             ),
-            SizedBox(width: 5),
+            SizedBox(width: 10),
             IconButton(
               icon: SizedBox(
-                height: 40,
-                width: 40,
+                height: 25,
+                width: 25,
                 child: SvgPicture.asset(
                   "assets/icons/facebook-2.svg",
                   fit: BoxFit.contain,
@@ -51,11 +51,11 @@ class MainWebPage extends StatelessWidget {
 
               onPressed: () => _launchURL(facebookUrl),
             ),
-            SizedBox(width: 5),
+            SizedBox(width: 10),
             IconButton(
               icon: SizedBox(
-                height: 40,
-                width: 40,
+                height: 25,
+                width: 25,
                 child:  SvgPicture.asset(
                   "assets/icons/twitter.svg",
                   fit: BoxFit.contain,

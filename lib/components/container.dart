@@ -7,9 +7,9 @@ class ContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Padding(
-      padding: const EdgeInsets.only(left: 20.0,right: 20.0),
+      padding: const EdgeInsets.only(left: 25.0,right: 25.0),
       child: Container(
-        height: 70,
+        height: 80,
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),

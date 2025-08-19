@@ -39,7 +39,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
         centerTitle: true,
         title: const Text("OTP Verification", style: TextStyle(fontSize: 15)),
         leading: IconButton(
-          highlightColor: Colors.deepOrangeAccent,
+          
           onPressed: () {
             Navigator.pop(context);
           },

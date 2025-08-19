@@ -140,7 +140,7 @@ class _SignInScreenState extends State<SignInScreen> {
               padding: EdgeInsets.all(8.0),
               child: CheckBoxProviderScreen(),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 20),
             ButtonContinue(
               onPressed: () {
                 if(_formKey.currentState!.validate()){
@@ -155,7 +155,7 @@ class _SignInScreenState extends State<SignInScreen> {
               },
               text: "Continue",
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 45),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
@@ -183,9 +183,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 20),
           ],
-        ),)
+                  ),)
       ),
     );
   }

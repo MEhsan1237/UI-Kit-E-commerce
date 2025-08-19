@@ -2,6 +2,7 @@ import 'package:e_ui_comm_kit/components/button.dart';
 import 'package:e_ui_comm_kit/components/mainweb_page.dart';
 import 'package:e_ui_comm_kit/screens/otpverificationscreen.dart';
 import 'package:e_ui_comm_kit/screens/signIn.dart';
+import 'package:e_ui_comm_kit/screens/signup2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -36,7 +37,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           centerTitle: true,
           title: Text("Sign Up", style: TextStyle(fontSize: 15)),
           leading: IconButton(
-            highlightColor: Colors.deepOrangeAccent,
+
             onPressed: () {
 
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignInScreen(),));
@@ -187,17 +188,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 20,),
             ButtonContinue(
 
               onPressed: (){
                 if(_formKey.currentState!.validate()){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => OtpVerificationScreen(),));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen2(),));
                 }
 
 
             }, text: "Continue",),
-            SizedBox(height:10,),
+            SizedBox(height:40,),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
@@ -207,7 +208,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
             Text( textAlign: TextAlign.center,
                 "By continuing confirm that you agree\nwith our Term and Condition"),
-            SizedBox(height: 10,),
+            SizedBox(height: 15,),
 
           ],
         ),)

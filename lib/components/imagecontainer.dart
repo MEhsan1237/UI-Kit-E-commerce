@@ -14,7 +14,7 @@ class ContainerImage extends StatefulWidget {
       "subtitle": "24 Brands",
     },
     {
-      "image": "assets/images/image_banner_1.jpg",
+      "image": "assets/images/image_banner_1.png",
       "title": "Laptops",
       "subtitle": "12 Brands",
     },
@@ -95,11 +95,9 @@ class _ContainerImageState extends State<ContainerImage> {
                     clipBehavior: Clip.antiAlias,
                     child: InkWell(
                       onTap: () {
-                          
                       },
                       child: Container(
                         width: 300,
-
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
                           image: DecorationImage(
@@ -112,8 +110,6 @@ class _ContainerImageState extends State<ContainerImage> {
                           padding: EdgeInsets.all(10),
                           alignment: Alignment.bottomLeft,
                           decoration: BoxDecoration(
-
-
                             borderRadius: BorderRadius.circular(14),
                             gradient: LinearGradient(
                               colors: [
