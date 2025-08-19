@@ -111,15 +111,10 @@ class _ContainerImageState extends State<ContainerImage> {
                           alignment: Alignment.bottomLeft,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(14),
-                            gradient: LinearGradient(
-                              colors: [
-                                Colors.black.withOpacity(0.6),
-                                Colors.transparent,
-                              ],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
+
+
                             ),
-                          ),
+
 
                           child: Padding(
                             padding: const EdgeInsets.only(left: 8.0),
@@ -135,9 +130,10 @@ class _ContainerImageState extends State<ContainerImage> {
                           ),
                         ),
                       ),
-                    ),
                   ),
-                );
+                  ),
+                    );
+
               },
             ),
           ),

@@ -4,8 +4,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 
 
-class MySplashApp extends StatelessWidget {
-  const MySplashApp({super.key});
+class OnBoardingScreen extends StatelessWidget {
+  const OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

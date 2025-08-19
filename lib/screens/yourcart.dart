@@ -27,12 +27,13 @@ class _YourCartScreenState extends State<YourCartScreen> {
           icon: SvgPicture.asset("assets/icons/back_icon.svg"),
         ),
         title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text("Your Cart"),
             Text(
               "$totalItems item${totalItems > 1 ? 's' : ''}",
-              style: const TextStyle(fontSize: 12, color: Colors.white70),
+              style: const TextStyle(fontSize: 12, color: Colors.deepOrangeAccent),
             ),
           ],
         ),

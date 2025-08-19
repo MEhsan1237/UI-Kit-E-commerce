@@ -198,7 +198,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
 
             }, text: "Continue",),
-            SizedBox(height:40,),
+            SizedBox(height:22,),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,

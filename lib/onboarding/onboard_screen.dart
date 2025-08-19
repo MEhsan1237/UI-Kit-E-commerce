@@ -5,14 +5,14 @@ import 'onboarding_splash1.dart';
 import 'onboarding_splash2.dart';
 import 'onboarding_splash3.dart';
 
-class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+class OnboardingSingleScreen extends StatefulWidget {
+  const OnboardingSingleScreen({super.key});
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  State<OnboardingSingleScreen> createState() => _OnboardingSingleScreenState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _OnboardingSingleScreenState extends State<OnboardingSingleScreen> {
   final PageController _controller = PageController();
   bool isLastPage = false;
 

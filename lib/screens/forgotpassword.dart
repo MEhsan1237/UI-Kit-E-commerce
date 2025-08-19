@@ -12,7 +12,7 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
-   final _formkey = GlobalKey<FormState>();
+   final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
    @override
   void dispose() {
@@ -38,6 +38,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       ),
       ),
       body: Form(
+        key: _formKey,
         child: Column(
           children: [
             SizedBox(height: 20),
@@ -92,7 +93,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
             ),
             SizedBox(height: 10,),
             ButtonContinue(onPressed: (){
-              if(_formkey.currentState!.validate()){
+              if(_formKey.currentState!.validate()){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => SignInScreen(),),);
 
               }

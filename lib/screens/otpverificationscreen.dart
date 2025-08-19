@@ -15,6 +15,7 @@ class OtpVerificationScreen extends StatefulWidget {
 }
 
 class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
+  final _formkey = GlobalKey<FormState>();
   String otpCode = "";
 
   @override
@@ -46,7 +47,9 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
           icon: SvgPicture.asset("assets/icons/back_icon.svg"),
         ),
       ),
-      body: Padding(
+      body:   Form(
+        key:  _formkey,
+        child: Padding(
         padding: const EdgeInsets.all(2.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,6 +67,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
 
             // Timer text
             Consumer<OtpProvider>(
+
               builder: (context, otpProvider, _) => Text(
                 otpProvider.secondsRemaining > 0
                     ? "Code will expire in 00:${otpProvider.secondsRemaining.toString().padLeft(2, '0')}"
@@ -77,11 +81,20 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 70.0),
               child: PinCodeTextField(
+                keyboardType:  TextInputType.number,
+
                 appContext: context,
                 length: 4,
-                obscureText: true,
+
                 obscuringCharacter: '•',
                 animationType: AnimationType.fade,
+                validator: (value){
+                  if(value==null||value.isEmpty){
+                    return "Enter Otp";
+                  }
+
+                  return null;
+                },
                 pinTheme: PinTheme(
                   shape: PinCodeFieldShape.box,
                   borderRadius: BorderRadius.circular(10),
@@ -91,14 +104,18 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                   selectedColor: Colors.deepOrangeAccent,
                   activeColor: Colors.deepOrangeAccent,
                   inactiveColor: Colors.black54,
+
                 ),
                 animationDuration: const Duration(milliseconds: 300),
                 enableActiveFill: false,
+                onChanged: (value) {
+                  otpCode = value;
+                },
                 onCompleted: (v) {
                   print("Completed: $v");
                   otpCode = v;
                 },
-                onChanged: (value) {},
+
               ),
             ),
 
@@ -106,14 +123,18 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
 
             ButtonContinue(
               onPressed: () {
-                if (otpCode.length == 4) {
-                  print("Continue pressed with code: $otpCode");
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const FullScreenImage()),
-                  );
-                }
+
+                  if(_formkey.currentState!.validate()){
+
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FullScreenImage()),
+                    );
+
+                  }
+
+
               },
               text: "Continue",
             ),
@@ -152,7 +173,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
             ),
           ],
         ),
-      ),
+      ),)
     );
   }
 }

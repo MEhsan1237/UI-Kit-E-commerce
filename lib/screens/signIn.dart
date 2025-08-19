@@ -155,7 +155,7 @@ class _SignInScreenState extends State<SignInScreen> {
               },
               text: "Continue",
             ),
-            SizedBox(height: 45),
+            SizedBox(height: 36),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,

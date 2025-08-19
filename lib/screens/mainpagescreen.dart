@@ -34,7 +34,9 @@ class MainScreenFullWidgets extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+
+              },
               icon: SvgPicture.asset("assets/icons/cart_icon.svg", width: 20, height: 20),
             ),
           ),
