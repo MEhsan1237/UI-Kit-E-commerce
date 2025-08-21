@@ -38,70 +38,71 @@ class FavoritesScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 6 / 7,
+          crossAxisSpacing: 14,
+          mainAxisSpacing: 14,
+          childAspectRatio: 7 / 9,
         ),
         itemCount: favProducts.length,
         itemBuilder: (context, index) {
           final product = favProducts[index];
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: const BoxDecoration(color: Colors.white),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 10),
-                  Center(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => ProductDetailPage(
-                              image: product["image"]!,
-                              label: product["label"]!,
-                              price: product["price"]!,
-                            ),
+          return Container(
+            decoration: const BoxDecoration(color: Colors.white),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 10),
+                Center(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => ProductDetailPage(
+                            image: product["image"]!,
+                            label: product["label"]!,
+                            price: product["price"]!,
                           ),
-                        );
-                      },
-                      child: Image.asset(
-                        product["image"]!,
-                        height: 100,
-                        width: 150,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 40),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Text(
-                      product["label"]!,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w200,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10.0, vertical: 10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          product["price"]!,
-                          style: const TextStyle(
-                              color: Colors.deepOrangeAccent),
                         ),
-                        ToggleLikeProvider(productId: product["id"]!),
-                      ],
+                      );
+                    },
+                    child: Image.asset(
+                      product["image"]!,
+                      height: 80,
+                      width: 120,
                     ),
                   ),
-                ],
-              ),
+                ),
+                const SizedBox(height: 12),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    product["label"]!,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color:  Colors.black,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Text(
+                        product["price"]!,
+                        style: const TextStyle(
+                            color: Colors.deepOrangeAccent),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left:6.0),
+                      child: ToggleLikeProvider(productId: product["id"]!),
+                    ),
+                  ],
+                ),
+              ],
             ),
           );
         },

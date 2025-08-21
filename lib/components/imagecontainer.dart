@@ -68,9 +68,9 @@ class _ContainerImageState extends State<ContainerImage> {
                   child: Text(
                     "See more",
                     style: TextStyle(
-                      color: Colors.black26,
+                      color: Colors.black,
                       fontSize: 14,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.w300,
                     ),
                   ),
                 ),

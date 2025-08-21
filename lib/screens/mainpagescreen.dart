@@ -2,6 +2,7 @@ import 'package:e_ui_comm_kit/components/container.dart';
 import 'package:e_ui_comm_kit/components/containericontext.dart';
 import 'package:e_ui_comm_kit/components/imagecontainer.dart';
 import 'package:e_ui_comm_kit/components/popularimagecontainer.dart';
+import 'package:e_ui_comm_kit/screens/yourcart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -35,6 +36,7 @@ class MainScreenFullWidgets extends StatelessWidget {
             padding: const EdgeInsets.only(right: 8.0),
             child: IconButton(
               onPressed: () {
+                 Navigator.push(context, MaterialPageRoute(builder: (context) => YourCartScreen(),));
 
               },
               icon: SvgPicture.asset("assets/icons/cart_icon.svg", width: 20, height: 20),

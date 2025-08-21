@@ -1,8 +1,7 @@
-import 'package:e_ui_comm_kit/onboarding/onboard_screen.dart';
-import 'package:e_ui_comm_kit/onboarding/onboardingall_scree.dart';
 import 'package:e_ui_comm_kit/providers/checkbox_provider_class.dart';
 import 'package:e_ui_comm_kit/providers/otp_class.dart';
 import 'package:e_ui_comm_kit/providers/tooglelike_class.dart';
+import 'package:e_ui_comm_kit/screens/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -38,7 +37,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body:  OnBoardingScreen()
+      body:  Splashscreen()
     );
   }
 }

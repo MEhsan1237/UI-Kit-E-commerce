@@ -1,6 +1,5 @@
 import 'package:e_ui_comm_kit/components/button.dart';
 import 'package:e_ui_comm_kit/components/mainweb_page.dart';
-import 'package:e_ui_comm_kit/screens/otpverificationscreen.dart';
 import 'package:e_ui_comm_kit/screens/signIn.dart';
 import 'package:e_ui_comm_kit/screens/signup2.dart';
 import 'package:flutter/material.dart';

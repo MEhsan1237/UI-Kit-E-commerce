@@ -8,7 +8,7 @@ class CheckBoxProviderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("hello jani");
+    print("This is only build");
     return Consumer<CheckboxProvider>(
       builder: (context, checkboxProvider, child) {
         return Row(
@@ -44,12 +44,6 @@ class CheckBoxProviderScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   )
-                ),
-
-                Container(
-                  height: 0.8,
-                  width: 110, // or use `double.infinity` or wrap with `IntrinsicWidth`
-                  color: Colors.black,
                 ),
               ],
             ),

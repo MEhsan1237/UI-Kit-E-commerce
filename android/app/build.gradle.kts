@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.example.e_ui_comm_kit"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -29,6 +29,7 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
+    ndkVersion = "27.0.12077973"
 
     buildTypes {
         release {

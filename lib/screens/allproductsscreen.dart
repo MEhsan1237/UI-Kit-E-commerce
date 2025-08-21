@@ -84,78 +84,76 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
           scrollDirection: Axis.vertical,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 6 / 7,
+            crossAxisSpacing: 14,
+            mainAxisSpacing: 14,
+            childAspectRatio: 7 / 9,
           ),
           itemCount: widget.productList.length,
           itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal:  10.0,vertical: 10.0),
-              child: Container(
+            return Container(
 
-                decoration: BoxDecoration(color: Colors.white),
+              decoration: BoxDecoration(color: Colors.white),
 
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 10.0,),
-                    Center(
-                      child: InkWell( onTap: (){
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 10.0,),
+                  Center(
+                    child: InkWell( onTap: (){
 
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProductDetailPage(
-                              image: widget.productList[index]["image"]!,
-                              label: widget.productList[index]["label"]!,
-                              price: widget.productList[index]["price"]!,
-                            ),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductDetailPage(
+                            image: widget.productList[index]["image"]!,
+                            label: widget.productList[index]["label"]!,
+                            price: widget.productList[index]["price"]!,
                           ),
-                        );
-                      },
-                        child: Image.asset(
-                          widget.productList[index]["image"]!,
-                          height: 100,
-                          width: 150,
                         ),
+                      );
+                    },
+                      child: Image.asset(
+                        widget.productList[index]["image"]!,
+                        height: 80,
+                        width: 120,
                       ),
                     ),
-                    SizedBox(height: 40),
+                  ),
+                  SizedBox(height: 12),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Text(
+                      widget.productList[index]["label"]!,
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+
+                  Row(
+
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                      children: [
+
                     Padding(
                       padding: const EdgeInsets.only(left: 20.0),
-                      child: Text(
-                        widget.productList[index]["label"]!,
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w200,
-                        ),
-                      ),
+                      child: Text(widget.productList[index]["price"]!,style: TextStyle(color: Colors.deepOrangeAccent),),
                     ),
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-                      child: Row( crossAxisAlignment: CrossAxisAlignment.start,
-
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-                          children: [
-
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 10.0),
-                          child: Text(widget.productList[index]["price"]!,style: TextStyle(color: Colors.deepOrangeAccent),),
-                        ),
-                  ToggleLikeProvider(productId: widget.productList[index]["id"]!),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 6.0),
+                                      child: ToggleLikeProvider(productId: widget.productList[index]["id"]!),
+                                    ),
 
 
-                      ]),
-                    ),
+                  ]),
 
 
-                  ],
-                ),
+                ],
               ),
             );
           },

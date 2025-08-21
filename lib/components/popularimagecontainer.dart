@@ -63,9 +63,9 @@ class _PopularImageControllerState extends State<PopularImageController> {
                 child: Text(
                   "See more",
                   style: TextStyle(
-                    color: Colors.black26,
+                    color: Colors.black,
                     fontSize: 14,
-                    fontWeight: FontWeight.w100,
+                    fontWeight: FontWeight.w300,
                   ),
                 ),
               ),
@@ -75,7 +75,7 @@ class _PopularImageControllerState extends State<PopularImageController> {
         SizedBox(height: 5,),
 
         SizedBox(
-          height: 140,
+          height: 150,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: widget.imageItems.length,
@@ -94,7 +94,7 @@ class _PopularImageControllerState extends State<PopularImageController> {
                         height: 70, // desired height
                         fit: BoxFit.contain,),
                       SizedBox(height: 10),
-                      Text(widget.imageItems[index]["labels"]!,style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w500),),
+                      Text(widget.imageItems[index]["labels"]!,style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w800),),
                     ],
                   ),
                 ),
